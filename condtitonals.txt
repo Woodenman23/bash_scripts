@@ -1,0 +1,45 @@
+# string comparison
+val="a"
+[[ "$val" == "a" ]] # equal
+[[ "$val" != "b" ]] # not equal
+
+[["$val" != "b"]] # syntax error
+
+# numerical comparison
+num = 1
+[[ "$num" -eq 1 ]] # equal
+[[ "$num" -ne 2 ]] # not equal
+[[ "$num" -lt 2 ]] # less than
+[[ "$num" -gt 2 ]] # greater than
+[[ "$num" -le 2 ]] # less than or equal
+[[ "$num" -ge 2 ]] # greater than or equal
+
+# variable existence
+val=""
+[[ -z $val ]] # var is null
+[[ -n $val ]] # var is not null
+
+# file checks
+file="./hello_world.sh"
+[[ -f $file ]] # file exists
+[[ -d $file ]] # dir exists
+[[ -e $file ]] # file/dir exists
+
+# permission checks
+file="./hello_world.sh"
+[[ -r $file ]] # file is readable
+[[ -w $file ]] # file is writable
+[[ -x $file ]] # file is executable
+
+# combinations
+val=7
+
+# internal
+[[ $val -gt 5 -a $val -lt 10 ]] # -> logical AND
+[[ $val -gt 5 -o $val -lt 3 ]]  # -> logical OR
+
+# external
+[[ $val -gt 5 ]] && [[ $val -lt 10 ]] # logical AND
+[[ $val -gt 5 ]] || [[ $val -lt 3 ]]  # logical OR
+
+
